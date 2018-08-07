@@ -1,9 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <ul>
-      <li v-for="listItem in myList" >{{ listItem }}</li>
-    </ul>
+  <div id="headerContain">
+    <div id="headerLogo">Address Book</div>
   </div>
 </template>
 
@@ -23,5 +20,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+  #headerContain {
+    background: rgb(114, 31, 192);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 4px 0;
+    margin-bottom: 10px;
+  }
 
 </style>
