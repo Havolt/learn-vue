@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tasks</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>All Tasks</h1>
+        <div v-for="task in allTasks">
+            <div>{{ task.task }}</div>
+            <button @click="changeStatus(task)" v-if="task.completed">Mark as Incomplete</button>
+            <button @click="changeStatus(task)" v-else>Mark as Complete</button>
+        </div>
+        <h1>Complete Tasks</h1>
+        <div v-for="task in completeTasks">
+            <div>{{ task.task }}</div>
+        </div>
+        <h1>Incomplete Tasks</h1>
+        <div v-for="task in incompleteTasks">
+                <div>{{ task.task }}</div>
+        </div>
+    </div>
+
+
+    <script>
+    
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            allTasks: [
+                { task: 'Wash Dishes', completed: true},
+                { task: 'Play Vidya', completed: false},
+                { task: 'Walk Dog', completed: false},
+                { task: 'Drive Car', completed: false},
+                { task: 'Make Bed', completed: true},
+                { task: 'Collect Sword', completed: false},
+
+            ]
+        },
+        computed: {
+            completeTasks() {
+                return this.allTasks.filter(task => task.completed);
+            },
+            incompleteTasks() {
+                return this.allTasks.filter(task => !task.completed);
+            }
+        },
+        methods: {
+            changeStatus(task) {
+                task.completed = !task.completed;
+            }
+        }
+    })
+    
+    </script>
+
+</body>
+</html>

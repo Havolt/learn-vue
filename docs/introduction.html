@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <title>Intro</title>
+</head>
+<body>
+
+    <div id="vApp">
+        <helter-skelter
+            v-for="lItem in myList"
+            v-bind:mein="lItem"
+            v-bind:key="lItem.id"
+        ></helter-skelter>
+    </div>    
+    
+    
+<script>
+
+    Vue.component('helter-skelter', {
+        props: ['mein'],
+        template: `<h1>{{ mein.message }}</h1>`
+    })
+
+    const vm = new Vue({
+        el: '#vApp',
+        data: {
+            myList: [
+                {id: 0, message: "Here's one"},
+                {id: 1, message: "Another one"},
+                {id: 2, message: "Third one"}
+            ]
+        },
+    });
+
+</script>
+    
+</body>
+</html>
