@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binding Disable</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <button  :disabled="disBool" @click="disabler" >Click to Disable</button>
+    </div>
+    
+    
+    <script>
+    
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            disBool: false
+        },
+        methods: {
+            disabler: function() {
+                this.disBool = true;
+            }
+        }
+    })
+
+    </script>
+    
+</body>
+</html>
